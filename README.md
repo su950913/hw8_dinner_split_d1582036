@@ -1,212 +1,60 @@
-[hw8_dinner_split_d1582036.ipynb](https://github.com/user-attachments/files/34735136/hw8_dinner_split_d1582036.ipynb)
-# hw8_dinner_split_d1582036{
-  "cells": [
-    {
-      "cell_type": "code",
-      "source": [
-        "# 1. 原始資料：保留文字資料，另外建立整理後的變數。\n",
-        "event_name = \"  WEEKEND DINNER  \"\n",
-        "meal_amount = \" NT$1,200 \"\n",
-        "people = \"4\"\n",
-        "\n",
-        "service_rate = 0.10\n",
-        "discount = 100\n",
-        "budget_per_person = 300\n",
-        "\n",
-        "# 2. 整理聚餐名稱。\n",
-        "clean_event_name = event_name.strip().lower()\n",
-        "\n",
-        "# 3. 清理餐費文字，再轉換餐費與人數的型別。\n",
-        "clean_meal_text = meal_amount.replace(\"NT$\", \"\").replace(\",\", \"\").replace(\" \", \"\")\n",
-        "meal_value = float(clean_meal_text)\n",
-        "people_count = int(people)\n",
-        "\n",
-        "# 4. 先按原始餐費計算服務費，再扣除折價券。\n",
-        "service_fee = meal_value * service_rate\n",
-        "total_amount = meal_value + service_fee - discount\n",
-        "amount_per_person = total_amount / people_count\n",
-        "\n",
-        "# 5. 比較結果直接保存為 bool。等於預算時不算超過。\n",
-        "is_over_budget = amount_per_person > budget_per_person\n",
-        "\n",
-        "# 6. 輸出時才將金額格式化為兩位小數。\n",
-        "print(f\"聚餐名稱：{clean_event_name}\")\n",
-        "print(f\"原始餐費：{meal_value:.2f} 元\")\n",
-        "print(f\"服務費：{service_fee:.2f} 元\")\n",
-        "print(f\"折價券：{discount:.2f} 元\")\n",
-        "print(f\"應付總額：{total_amount:.2f} 元\")\n",
-        "print(f\"分攤人數：{people_count} 人\")\n",
-        "print(f\"每人費用：{amount_per_person:.2f} 元\")\n",
-        "print(f\"每人預算：{budget_per_person:.2f} 元\")\n",
-        "print(f\"是否超過預算：{is_over_budget}\")"
-      ],
-      "metadata": {
-        "id": "gLje2dnXpAVl",
-        "outputId": "718c0cd2-ae62-41e9-8c5d-9262dc7c07ea",
-        "colab": {
-          "base_uri": "https://localhost:8080/"
-        }
-      },
-      "execution_count": 11,
-      "outputs": [
-        {
-          "output_type": "stream",
-          "name": "stdout",
-          "text": [
-            "聚餐名稱：weekend dinner\n",
-            "原始餐費：1200.00 元\n",
-            "服務費：120.00 元\n",
-            "折價券：100.00 元\n",
-            "應付總額：1220.00 元\n",
-            "分攤人數：4 人\n",
-            "每人費用：305.00 元\n",
-            "每人預算：300.00 元\n",
-            "是否超過預算：True\n"
-          ]
-        }
-      ]
-    },
-    {
-      "cell_type": "code",
-      "source": [
-        "# 1. 原始資料：保留文字資料，另外建立整理後的變數。\n",
-        "event_name = \"  WEEKEND DINNER  \"\n",
-        "meal_amount = \" NT$1,200 \"\n",
-        "people = \"5\"\n",
-        "\n",
-        "service_rate = 0.10\n",
-        "discount = 100\n",
-        "budget_per_person = 300\n",
-        "\n",
-        "# 2. 整理聚餐名稱。\n",
-        "clean_event_name = event_name.strip().lower()\n",
-        "\n",
-        "# 3. 清理餐費文字，再轉換餐費與人數的型別。\n",
-        "clean_meal_text = meal_amount.replace(\"NT$\", \"\").replace(\",\", \"\").replace(\" \", \"\")\n",
-        "meal_value = float(clean_meal_text)\n",
-        "people_count = int(people)\n",
-        "\n",
-        "# 4. 先按原始餐費計算服務費，再扣除折價券。\n",
-        "service_fee = meal_value * service_rate\n",
-        "total_amount = meal_value + service_fee - discount\n",
-        "amount_per_person = total_amount / people_count\n",
-        "\n",
-        "# 5. 比較結果直接保存為 bool。等於預算時不算超過。\n",
-        "is_over_budget = amount_per_person > budget_per_person\n",
-        "\n",
-        "# 6. 輸出時才將金額格式化為兩位小數。\n",
-        "print(f\"聚餐名稱：{clean_event_name}\")\n",
-        "print(f\"原始餐費：{meal_value:.2f} 元\")\n",
-        "print(f\"服務費：{service_fee:.2f} 元\")\n",
-        "print(f\"折價券：{discount:.2f} 元\")\n",
-        "print(f\"應付總額：{total_amount:.2f} 元\")\n",
-        "print(f\"分攤人數：{people_count} 人\")\n",
-        "print(f\"每人費用：{amount_per_person:.2f} 元\")\n",
-        "print(f\"每人預算：{budget_per_person:.2f} 元\")\n",
-        "print(f\"是否超過預算：{is_over_budget}\")"
-      ],
-      "metadata": {
-        "id": "Xptq606PpKEl",
-        "outputId": "efc7e067-a3f5-4ec3-b9c9-9953490de4e8",
-        "colab": {
-          "base_uri": "https://localhost:8080/"
-        }
-      },
-      "execution_count": 12,
-      "outputs": [
-        {
-          "output_type": "stream",
-          "name": "stdout",
-          "text": [
-            "聚餐名稱：weekend dinner\n",
-            "原始餐費：1200.00 元\n",
-            "服務費：120.00 元\n",
-            "折價券：100.00 元\n",
-            "應付總額：1220.00 元\n",
-            "分攤人數：5 人\n",
-            "每人費用：244.00 元\n",
-            "每人預算：300.00 元\n",
-            "是否超過預算：False\n"
-          ]
-        }
-      ]
-    },
-    {
-      "cell_type": "code",
-      "source": [
-        "# 1. 原始資料：保留文字資料，另外建立整理後的變數。\n",
-        "event_name = \"  WEEKEND DINNER  \"\n",
-        "meal_amount = \" NT$1,200 \"\n",
-        "people = \"4\"\n",
-        "\n",
-        "service_rate = 0.10\n",
-        "discount = 220\n",
-        "budget_per_person = 300\n",
-        "\n",
-        "# 2. 整理聚餐名稱。\n",
-        "clean_event_name = event_name.strip().lower()\n",
-        "\n",
-        "# 3. 清理餐費文字，再轉換餐費與人數的型別。\n",
-        "clean_meal_text = meal_amount.replace(\"NT$\", \"\").replace(\",\", \"\").replace(\" \", \"\")\n",
-        "meal_value = float(clean_meal_text)\n",
-        "people_count = int(people)\n",
-        "\n",
-        "# 4. 先按原始餐費計算服務費，再扣除折價券。\n",
-        "service_fee = meal_value * service_rate\n",
-        "total_amount = meal_value + service_fee - discount\n",
-        "amount_per_person = total_amount / people_count\n",
-        "\n",
-        "# 5. 比較結果直接保存為 bool。等於預算時不算超過。\n",
-        "is_over_budget = amount_per_person > budget_per_person\n",
-        "\n",
-        "# 6. 輸出時才將金額格式化為兩位小數。\n",
-        "print(f\"聚餐名稱：{clean_event_name}\")\n",
-        "print(f\"原始餐費：{meal_value:.2f} 元\")\n",
-        "print(f\"服務費：{service_fee:.2f} 元\")\n",
-        "print(f\"折價券：{discount:.2f} 元\")\n",
-        "print(f\"應付總額：{total_amount:.2f} 元\")\n",
-        "print(f\"分攤人數：{people_count} 人\")\n",
-        "print(f\"每人費用：{amount_per_person:.2f} 元\")\n",
-        "print(f\"每人預算：{budget_per_person:.2f} 元\")\n",
-        "print(f\"是否超過預算：{is_over_budget}\")"
-      ],
-      "metadata": {
-        "id": "3Ml1ZONNpZEs",
-        "outputId": "1358bda1-8439-4fa4-82b6-5f813bba5621",
-        "colab": {
-          "base_uri": "https://localhost:8080/"
-        }
-      },
-      "execution_count": 14,
-      "outputs": [
-        {
-          "output_type": "stream",
-          "name": "stdout",
-          "text": [
-            "聚餐名稱：weekend dinner\n",
-            "原始餐費：1200.00 元\n",
-            "服務費：120.00 元\n",
-            "折價券：220.00 元\n",
-            "應付總額：1100.00 元\n",
-            "分攤人數：4 人\n",
-            "每人費用：275.00 元\n",
-            "每人預算：300.00 元\n",
-            "是否超過預算：False\n"
-          ]
-        }
-      ]
-    }
-  ],
-  "metadata": {
-    "colab": {
-      "name": "歡迎使用 Colab",
-      "provenance": []
-    },
-    "kernelspec": {
-      "display_name": "Python 3",
-      "name": "python3"
-    }
-  },
-  "nbformat": 4,
-  "nbformat_minor": 0
-}
+[ai_studio_code.txt](https://github.com/user-attachments/files/34735249/ai_studio_code.txt)
+# Python 聚餐費用試算器
+
+- **學生姓名**：王小明（請替換為你的姓名）
+- **學號**：A12345678（請替換為你的學號）
+
+## 一、程式用途與執行方式
+本程式用於計算聚餐費用分攤，可將餐費字串清理轉為數值、計算 10% 服務費、扣除折價券，並計算每人應付費用以及判斷是否超過個人預算。
+
+### 如何在 Google Colab 開啟並執行：
+1. 將本儲存庫中的 `dinner_split_學號.ipynb` 下載。
+2. 開啟 [Google Colab](https://colab.research.google.com/)。
+3. 點選「檔案」->「上傳筆記本」，選取該檔案。
+4. 依序執行各儲存格（或點選「執行階段」->「全部執行」）即可看到執行結果。
+
+---
+
+## 二、三組測試結果摘要
+（請將你程式跑出的三組實際數據填入下方）
+
+- **測試組一**：
+  - 原始餐費：XXXX 元、人數：X 人、折價券：XXX 元
+  - 應付總額：XXXX 元、每人分攤：XXX 元、是否超標：[是/否]
+- **測試組二**：
+  - 原始餐費：XXXX 元、人數：X 人、折價券：XXX 元
+  - 應付總額：XXXX 元、每人分攤：XXX 元、是否超標：[是/否]
+- **測試組三**：
+  - 原始餐費：XXXX 元、人數：X 人、折價券：XXX 元
+  - 應付總額：XXXX 元、每人分攤：XXX 元、是否超標：[是/否]
+
+---
+
+## 三、問題回答
+
+### 問題一：為什麼 "4" 要先轉成數字，才能用於本題的分攤計算？
+**回答**：
+因為 `"4"` 帶有引號，在 Python 中屬於**字串（string）**型態。字串代表純文字，無法直接與數值進行數學上的除法運算（若直接執行 `總額 / "4"` 會引發 `TypeError`）。因此必須使用 `int("4")` 將它轉型為整數（integer），程式才能進行分攤費用的數學計算。
+
+### 問題二：如果先扣折價券，再依剩餘餐費計算服務費，第一組的應付總額會變成多少？為什麼和題目規定的結果不同？
+**回答**：
+（*註：請根據你第一組的實際數字替換下方算式，以下以「原始餐費 2000、折價券 200、服務費 10%」為例示範*）
+- **依題目規定（先計服務費再扣券）**：
+  - 服務費 = $2000 \times 10\% = 200$
+  - 應付總額 = $2000 + 200 - 200 = 2000$ 元
+- **若先扣折價券再計服務費**：
+  - 折抵後餐費 = $2000 - 200 = 1800$
+  - 服務費 = $1800 \times 10\% = 180$
+  - 應付總額 = $1800 + 180 = 1980$ 元
+- **差異原因**：
+  因為折價券扣掉了部分餐費，使得計算服務費的**基準金額變小**，導致計算出來的服務費減少，因此算出的應付總額會比題目規定的結果更低。
+
+---
+
+## 四、AI 使用紀錄
+- **使用的 AI 工具**：ChatGPT / Claude（填寫實際使用的工具）
+- **主要提示詞**：
+  > 請協助我用 Python 完成聚餐費用試算器。我只學過變數、數字、布林、字串處理與基本輸出。請使用這些功能撰寫容易閱讀的程式，每個資料整理與計算步驟分開寫，並解釋文字轉數字及計算順序。服務費必須以原始餐費計算，再扣除折價券。
+- **程式修改與驗證**：
+  AI 初步產生程式碼後，我核對了服務費的計算順序，確認它是先以原始餐費計算 10% 服務費後才扣減折價券。接著我在 Colab 上手動代入三組測試資料，並以手算核對輸出結果無誤。
+*(若完全未使用 AI，請直接寫「未使用 AI」)*
